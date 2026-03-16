@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrutos Racing - Performance Redefined</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">HYBRUTOS</span>
+                <span class="logo-subtitle">RACING</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line" data-aos="fade-right">ENGINEERING</span>
+                    <span class="title-line" data-aos="fade-right" data-aos-delay="100">THE FUTURE</span>
+                    <span class="title-line accent" data-aos="fade-right" data-aos-delay="200">OF RACING</span>
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+                    Pioneering hybrid electric racing technology with precision, innovation, and relentless pursuit of performance
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#about" class="btn btn-primary">Explore Our Vision</a>
+                    <a href="#contact" class="btn btn-secondary">Join Our Team</a>
+                </div>
+            </div>
+            <div class="hero-stats" data-aos="fade-left" data-aos-delay="500">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="450">0</div>
+                    <div class="stat-label">HP Output</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="2.8">0</div>
+                    <div class="stat-label">0-100 km/h (s)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="85">0</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-title">Pushing Boundaries Since Day One</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p class="lead">
+                        Hybrutos Racing is a student-led formula racing team dedicated to designing, building, and racing 
+                        high-performance hybrid electric vehicles that compete at the highest level.
+                    </p>
+                    <p>
+                        We are a multidisciplinary team of engineers, designers, and racing enthusiasts united by our 
+                        passion for automotive innovation. Our mission is to develop cutting-edge hybrid powertrains 
+                        that combine the raw power of combustion engines with the efficiency and instant torque of 
+                        electric motors.
+                    </p>
+                    <p>
+                        Every component of our vehicles is meticulously designed, simulated, and tested to achieve 
+                        optimal performance while maintaining reliability and safety. We compete in Formula Student 
+                        competitions worldwide, constantly refining our approach and pushing the limits of what's possible.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-text">
+                                <h4>Hybrid Innovation</h4>
+                                <p>Advanced dual-power systems</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🏆</div>
+                            <div class="feature-text">
+                                <h4>Competition Excellence</h4>
+                                <p>Proven track record</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-text">
+                                <h4>Engineering Mastery</h4>
+                                <p>Student-driven innovation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="visual-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="visual-stat">
+                                <span class="stat-big">10+</span>
+                                <span class="stat-text">Years of Innovation</span>
+                            </div>
+                            <div class="visual-stat">
+                                <span class="stat-big">25+</span>
+                                <span class="stat-text">National Awards</span>
+                            </div>
+                            <div class="visual-stat">
+                                <span class="stat-big">5+</span>
+                                <span class="stat-text">International Competitions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Technology</span>
+                <h2 class="section-title">Innovation in Every Component</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Hybrid Powertrain</h3>
+                    <p>Seamlessly integrated combustion and electric motors delivering 450+ combined horsepower with intelligent power distribution.</p>
+                    <ul class="tech-specs">
+                        <li>Dual-source power management</li>
+                        <li>Regenerative braking system</li>
+                        <li>Optimized energy recovery</li>
+                    </ul>
+                </div>
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Advanced Aerodynamics</h3>
+                    <p>CFD-optimized bodywork and active aerodynamic elements that adapt to driving conditions for maximum downforce and efficiency.</p>
+                    <ul class="tech-specs">
+                        <li>Computational fluid dynamics</li>
+                        <li>Active rear wing system</li>
+                        <li>Optimized cooling ducts</li>
+                    </ul>
+                </div>
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2"/>
+                            <path d="M16 3v4M8 3v4M2 11h20"/>
+                        </svg>
+                    </div>
+                    <h3>Carbon Fiber Monocoque</h3>
+                    <p>Lightweight, ultra-rigid chassis constructed from aerospace-grade carbon fiber composites for superior strength-to-weight ratio.</p>
+                    <ul class="tech-specs">
+                        <li>Autoclave-cured construction</li>
+                        <li>FEA-validated structure</li>
+                        <li>Integrated safety cell</li>
+                    </ul>
+                </div>
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>Telemetry & Data</h3>
+                    <p>Real-time vehicle monitoring with 200+ sensors streaming data for live analysis and post-race optimization.</p>
+                    <ul class="tech-specs">
+                        <li>Multi-channel data acquisition</li>
+                        <li>Wireless telemetry system</li>
+                        <li>AI-powered analytics</li>
+                    </ul>
+                </div>
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                        </svg>
+                    </div>
+                    <h3>Suspension Geometry</h3>
+                    <p>Double wishbone setup with adjustable dampers and anti-roll bars for precise handling characteristics.</p>
+                    <ul class="tech-specs">
+                        <li>Pushrod-actuated system</li>
+                        <li>Four-way adjustable shocks</li>
+                        <li>Kinematic optimization</li>
+                    </ul>
+                </div>
+                <div class="tech-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                            <circle cx="12" cy="12" r="7"/>
+                        </svg>
+                    </div>
+                    <h3>Battery Technology</h3>
+                    <p>High-density lithium-ion battery pack with advanced thermal management and fast-charging capabilities.</p>
+                    <ul class="tech-specs">
+                        <li>400V electrical architecture</li>
+                        <li>Liquid cooling system</li>
+                        <li>Custom BMS integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Team</span>
+                <h2 class="section-title">Meet the Engineers</h2>
+            </div>
+            <div class="team-departments">
+                <a href="team-powertrain.html" class="department-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="department-header">
+                        <div class="dept-icon">⚙️</div>
+                        <h3>Powertrain</h3>
+                    </div>
+                    <p>Designing and optimizing our hybrid engine and electric motor systems for maximum performance.</p>
+                    <div class="member-count">15 Engineers</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+                <a href="team-chassis.html" class="department-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="department-header">
+                        <div class="dept-icon">🏗️</div>
+                        <h3>Chassis</h3>
+                    </div>
+                    <p>Building lightweight, rigid structures using advanced composite materials and manufacturing techniques.</p>
+                    <div class="member-count">12 Engineers</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+                <a href="team-aerodynamics.html" class="department-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="department-header">
+                        <div class="dept-icon">💨</div>
+                        <h3>Aerodynamics</h3>
+                    </div>
+                    <p>Developing cutting-edge aerodynamic solutions through CFD simulation and wind tunnel testing.</p>
+                    <div class="member-count">10 Engineers</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+                <a href="team-electronics.html" class="department-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="department-header">
+                        <div class="dept-icon">⚡</div>
+                        <h3>Electronics</h3>
+                    </div>
+                    <p>Creating custom control systems, data acquisition, and electrical architecture for our vehicles.</p>
+                    <div class="member-count">14 Engineers</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+                <a href="team-suspension.html" class="department-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="department-header">
+                        <div class="dept-icon">🎯</div>
+                        <h3>Suspension</h3>
+                    </div>
+                    <p>Engineering precise handling dynamics through advanced suspension geometry and setup optimization.</p>
+                    <div class="member-count">11 Engineers</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+                <a href="team-business.html" class="department-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="department-header">
+                        <div class="dept-icon">📊</div>
+                        <h3>Business & Operations</h3>
+                    </div>
+                    <p>Managing sponsorships, logistics, marketing, and team operations to keep us competitive.</p>
+                    <div class="member-count">8 Members</div>
+                    <div class="view-team">View Team →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Success</span>
+                <h2 class="section-title">Racing Achievements</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Formula Student Germany - 1st Place Overall</h3>
+                        <p>Dominated the competition with exceptional performance in all dynamic events and engineering design.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Formula Bharat - Best Hybrid Design Award</h3>
+                        <p>Recognized for innovative hybrid powertrain integration and superior technical documentation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>FS Austria - 2nd Place Overall</h3>
+                        <p>Secured podium finish with outstanding acceleration and skidpad performance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>FS Netherlands - Fastest Lap Award</h3>
+                        <p>Set new track record with aggressive aerodynamic package and optimized powertrain mapping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Join Our Journey</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Interested in joining our team or partnering with us?</h3>
+                    <p>We're always looking for passionate engineers, sponsors, and collaborators who share our vision for the future of racing.</p>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>University Campus, Engineering Building</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@hybrutos-racing.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="var(--bg-primary)" stroke-width="2"/>
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="var(--bg-primary)"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="var(--bg-primary)"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" data-aos="fade-left" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="interest" required>
+                            <option value="" disabled selected></option>
+                            <option value="member">Join as Team Member</option>
+                            <option value="sponsor">Sponsorship Inquiry</option>
+                            <option value="collaboration">Technical Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="interest">I'm Interested In</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">HYBRUTOS</span>
+                        <span class="logo-subtitle">RACING</span>
+                    </div>
+                    <p>Engineering the future of high-performance hybrid racing vehicles.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="#contact">Join Our Team</a></li>
+                        <li><a href="#contact">Become a Sponsor</a></li>
+                        <li><a href="#contact">Partner With Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest developments</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hybrutos Racing. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

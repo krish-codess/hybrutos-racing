@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chassis Team - Hybrutos Racing</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/team-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <span class="logo-text">HYBRUTOS</span>
+                    <span class="logo-subtitle">RACING</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#technology" class="nav-link">Technology</a></li>
+                <li><a href="index.html#team" class="nav-link active">Team</a></li>
+                <li><a href="index.html#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Team Page Header -->
+    <section class="team-page-header">
+        <div class="container">
+            <a href="index.html#team" class="back-link">← Back to All Teams</a>
+            <div class="team-page-title">
+                <div class="dept-icon-large">🏗️</div>
+                <div>
+                    <h1>Chassis Team</h1>
+                    <p class="team-description">Building lightweight, rigid structures using advanced composite materials and manufacturing techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Grid -->
+    <section class="team-members-section">
+        <div class="container">
+            <div class="members-grid">
+                <!-- Add Chassis team members here -->
+                <a href="profile.html?member=chassis-member-1" class="member-card">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=CM1" alt="Chassis Member">
+                        <div class="member-overlay">
+                            <span>View Profile →</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Team Member Name</h3>
+                        <p class="member-role">Chassis Lead</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">Carbon Fiber</span>
+                            <span class="skill-tag">FEA</span>
+                            <span class="skill-tag">Manufacturing</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Add more chassis team members following the same pattern -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">HYBRUTOS</span>
+                        <span class="logo-subtitle">RACING</span>
+                    </div>
+                    <p>Engineering the future of high-performance hybrid racing vehicles.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#technology">Technology</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="index.html#achievements">Achievements</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hybrutos Racing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
