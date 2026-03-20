@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Detail - Hybrutos Racing</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Page-specific styles ── */
+        .comp-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 7rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .comp-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 60%, rgba(102,45,145,.25) 0%, transparent 55%),
+                radial-gradient(circle at 75% 30%, rgba(157,78,221,.15) 0%, transparent 50%),
+                var(--bg-secondary);
+            z-index: -1;
+        }
+        .comp-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(0deg, var(--border-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: .2;
+        }
+        .comp-event-label {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: .75rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--accent-secondary);
+            border: 1px solid var(--accent-secondary);
+            padding: .3rem .8rem;
+            margin-bottom: 1rem;
+        }
+        .comp-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .comp-title .accent { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .comp-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        .comp-meta span { display: flex; align-items: center; gap: .4rem; }
+
+        /* Results bar */
+        .comp-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .result-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+        }
+        .result-value {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent-secondary);
+            line-height: 1;
+        }
+        .result-label {
+            font-size: .85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: .4rem;
+        }
+
+        /* Two-column content */
+        .comp-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        @media(max-width: 768px) { .comp-body { grid-template-columns: 1fr; } }
+
+        .comp-section-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+        }
+        .comp-section-card h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--accent-secondary);
+            margin-bottom: 1rem;
+        }
+        .comp-section-card p, .comp-section-card li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .comp-section-card ul { list-style: none; padding: 0; }
+        .comp-section-card ul li::before {
+            content: '▸ ';
+            color: var(--accent-primary);
+        }
+
+        /* Photo grid placeholder */
+        .comp-photos {
+            margin-bottom: 4rem;
+        }
+        .comp-photos h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--accent-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .comp-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media(max-width: 600px) { .comp-photo-grid { grid-template-columns: 1fr 1fr; } }
+        .comp-photo-item {
+            aspect-ratio: 4/3;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            color: var(--text-muted);
+            font-size: .85rem;
+            font-family: var(--font-display);
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            overflow: hidden;
+            position: relative;
+        }
+        .comp-photo-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .photo-placeholder-icon { font-size: 2rem; opacity: .3; }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--font-display);
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color var(--transition-fast);
+        }
+        .back-link:hover { color: var(--accent-secondary); }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none;">
+                    <span class="logo-text">HYBRUTOS</span>
+                    <span class="logo-subtitle">RACING</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home"         class="nav-link">Home</a></li>
+                <li><a href="index.html#about"        class="nav-link">About</a></li>
+                <li><a href="index.html#technology"   class="nav-link">Technology</a></li>
+                <li><a href="index.html#team"         class="nav-link">Team</a></li>
+                <li><a href="index.html#achievements" class="nav-link active">Achievements</a></li>
+                <li><a href="index.html#gallery"      class="nav-link">Gallery</a></li>
+                <li><a href="index.html#contact"      class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Competition Hero -->
+    <div class="comp-hero">
+        <div class="comp-hero-bg"></div>
+        <div class="container">
+            <a href="index.html#achievements" class="back-link">← Back to Achievements</a>
+            <span class="comp-event-label" id="compEventLabel">Competition</span>
+            <h1 class="comp-title" id="compTitle">
+                <span class="accent" id="compTitleAccent">Loading</span>
+            </h1>
+            <div class="comp-meta">
+                <span id="compDate">📅 —</span>
+                <span id="compLocation">📍 —</span>
+                <span id="compResult">🏆 —</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" style="padding-top: 3rem; padding-bottom: 2rem;">
+
+        <!-- Key Stats -->
+        <div class="comp-results" id="compResults">
+            <!-- filled by JS -->
+        </div>
+
+        <!-- Two-column body -->
+        <div class="comp-body">
+            <div class="comp-section-card">
+                <h3>Event Summary</h3>
+                <p id="compSummary">Loading competition details…</p>
+            </div>
+            <div class="comp-section-card">
+                <h3>Key Highlights</h3>
+                <ul id="compHighlights"></ul>
+            </div>
+            <div class="comp-section-card">
+                <h3>Technical Package</h3>
+                <p id="compTech">Details about the vehicle specification and setup used at this event.</p>
+            </div>
+            <div class="comp-section-card">
+                <h3>Team Notes</h3>
+                <p id="compNotes">Reflections and learnings from the team after the event.</p>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Placeholder -->
+        <div class="comp-photos">
+            <h3>Event Photos</h3>
+            <div class="comp-photo-grid">
+                <div class="comp-photo-item">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Hero Shot</span>
+                </div>
+                <div class="comp-photo-item">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Scrutineering</span>
+                </div>
+                <div class="comp-photo-item">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Dynamic Events</span>
+                </div>
+                <div class="comp-photo-item">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Podium</span>
+                </div>
+                <div class="comp-photo-item">
+                    <span class="photo-placeholder-icon">📷</span>
+                    <span>Team Photo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">HYBRUTOS</span>
+                        <span class="logo-subtitle">RACING</span>
+                    </div>
+                    <p>Engineering the future of high-performance hybrid racing vehicles.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#technology">Technology</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="index.html#achievements">Achievements</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hybrutos Racing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+    // ── Competition Data ──────────────────────────────────────────────────────
+    const competitions = {
+        'fs-germany-2024': {
+            label: 'Formula Student Germany 2024',
+            titleAccent: '1st Place Overall',
+            date: 'August 2024',
+            location: 'Hockenheimring, Germany',
+            result: '1st Overall',
+            summary: 'Our most successful international outing to date. The team dominated all dynamic events, setting a new benchmark in our competition class with an outstanding hybrid powertrain performance and near-perfect engineering design score.',
+            highlights: [
+                'First place in Acceleration & Autocross',
+                'Top score in Engineering Design judging',
+                'Zero mechanical DNFs across all dynamic events',
+                'Fastest endurance lap by a hybrid car',
+            ],
+            tech: 'HR-24 chassis with 450 HP hybrid powertrain, full carbon monocoque, active aero package. Suspension geometry revised post-Austria 2023 based on data review.',
+            notes: 'The win validated two years of hybrid integration work. Key learnings: our cooling system margin was tighter than ideal on endurance day — high priority for HR-25.',
+            stats: [
+                { value: '1st',   label: 'Overall Rank'      },
+                { value: '98.2',  label: 'Design Score'       },
+                { value: '3.7s',  label: 'Acceleration (0-75m)' },
+                { value: '0',     label: 'Mechanical DNFs'    },
+            ]
+        },
+        'formula-bharat-2023': {
+            label: 'Formula Bharat 2023',
+            titleAccent: 'Best Hybrid Design Award',
+            date: 'January 2023',
+            location: 'Kari Motor Speedway, India',
+            result: 'Best Hybrid Design',
+            summary: 'Recognised by the judging panel for our innovative hybrid powertrain integration and comprehensive technical documentation. Our cost report and business plan also received commendation.',
+            highlights: [
+                'Best Hybrid Design Award — unanimous judge decision',
+                'Top 5 in Engineering Design presentation',
+                'Commended for cost report accuracy',
+                'First international-spec hybrid entry from SRMIST',
+            ],
+            tech: 'HR-23 hybrid prototype, revised BMS and regenerative braking calibration. First competition run for the 80 kW electric motor package.',
+            notes: 'Invaluable learning event for our hybrid control strategy. Static events were a highlight; dynamic reliability will be the focus for FS Austria 2023.',
+            stats: [
+                { value: '🏆',  label: 'Best Hybrid Design' },
+                { value: 'Top 5', label: 'Design Presentation' },
+                { value: '80kW', label: 'Electric Motor'      },
+                { value: '1st',  label: 'Hybrid Entry SRMIST' },
+            ]
+        },
+        'fs-austria-2023': {
+            label: 'FS Austria 2023',
+            titleAccent: '2nd Place Overall',
+            date: 'July 2023',
+            location: 'Red Bull Ring, Austria',
+            result: '2nd Overall',
+            summary: 'A podium finish at one of the most competitive Formula Student events in Europe. Our outstanding acceleration and skidpad scores carried us to second place overall despite a minor electronics fault in endurance.',
+            highlights: [
+                '2nd Place Overall — first European podium',
+                'Fastest skidpad time in hybrid class',
+                'Personal best acceleration run: 3.9 s (0-75 m)',
+                'Awarded Best Newcomer from Asia',
+            ],
+            tech: 'HR-23 with updated suspension geometry and revised aerodynamic front wing. Traction control calibration significantly improved from Formula Bharat.',
+            notes: 'Electronics DNF on lap 11 of endurance cost us the overall win. We have since re-routed the loom and added redundant connectors for all safety-critical channels.',
+            stats: [
+                { value: '2nd',  label: 'Overall Rank'       },
+                { value: '3.9s', label: 'Acceleration'        },
+                { value: '🥇',   label: 'Skidpad Hybrid Class' },
+                { value: '1',    label: 'DNF (Electronics)'   },
+            ]
+        },
+        'fs-netherlands-2022': {
+            label: 'FS Netherlands 2022',
+            titleAccent: 'Fastest Lap Award',
+            date: 'September 2022',
+            location: 'TT Circuit Assen, Netherlands',
+            result: 'Fastest Lap Award',
+            summary: 'Set a new track record at TT Assen with an aggressive aerodynamic package and optimised powertrain mapping. This event marked the debut of our custom sequential gearbox.',
+            highlights: [
+                'Fastest Lap Award — outright track record',
+                'Debut of custom sequential gearbox',
+                'New aerodynamic front splitter and rear diffuser',
+                '15% improvement in engine power vs 2021 spec',
+            ],
+            tech: 'HR-22 with all-new sequential gearbox (40% faster shift time), revised diffuser package, and first iteration of our hybrid energy recovery strategy.',
+            notes: 'Fastest lap in outright terms but our endurance strategy was too aggressive on tyres. Tyre management training has been added to our driver programme for 2023.',
+            stats: [
+                { value: '⚡',   label: 'Fastest Lap'         },
+                { value: '40%',  label: 'Faster Gear Shifts'   },
+                { value: '15%',  label: 'More Engine Power'    },
+                { value: 'HR-22', label: 'Car Specification'   },
+            ]
+        },
+    };
+
+    // ── Populate page ─────────────────────────────────────────────────────────
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+        const eventId = params.get('event');
+        const data = competitions[eventId];
+
+        if (!data) {
+            document.getElementById('compTitle').textContent = 'Competition Not Found';
+            return;
+        }
+
+        document.title = data.label + ' — Hybrutos Racing';
+        document.getElementById('compEventLabel').textContent   = data.label;
+        document.getElementById('compTitleAccent').textContent  = data.titleAccent;
+        document.getElementById('compDate').textContent         = '📅 ' + data.date;
+        document.getElementById('compLocation').textContent     = '📍 ' + data.location;
+        document.getElementById('compResult').textContent       = '🏆 ' + data.result;
+        document.getElementById('compSummary').textContent      = data.summary;
+        document.getElementById('compTech').textContent         = data.tech;
+        document.getElementById('compNotes').textContent        = data.notes;
+
+        // Stats
+        document.getElementById('compResults').innerHTML = data.stats.map(s => `
+            <div class="result-card">
+                <div class="result-value">${s.value}</div>
+                <div class="result-label">${s.label}</div>
+            </div>
+        `).join('');
+
+        // Highlights
+        document.getElementById('compHighlights').innerHTML = data.highlights.map(h => `<li>${h}</li>`).join('');
+    })();
+    </script>
+</body>
+</html>

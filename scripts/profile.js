@@ -8,29 +8,18 @@ const profileData = {
         role: 'President',
         team: 'Business & Operations Team',
         image: 'member-pictures/Business and Operations/Swarup Nandakumar.jpeg',
-        bio: 'Im Swarup, a B.Tech Aerospace Engineering student at SRMIST and the Team Lead of Hybrutos Racing, where I work on designing and developing high-performance Formula Student cars for regional and international competitions. I lead a multidisciplinary team, conduct training across domains, and focus on building a strong technical and collaborative culture within the club.',
-        skills: [
-            { name: 'Engine Design', level: 95 },
-            { name: 'CAD (SolidWorks)', level: 90 },
-            { name: 'Testing & Validation', level: 88 },
-            { name: 'Thermodynamics', level: 85 },
-            { name: 'Project Management', level: 80 }
-        ],
-        education: {
-            degree: 'Bachelor of Science in Mechanical Engineering',
-            school: 'University Name',
-            year: '2020 - 2024',
-            specialization: 'Specialized in Automotive Engineering and Powertrain Design'
-        },
-        achievements: [
-            'Led powertrain development for FS Germany 2024 winning car',
-            'Improved hybrid system efficiency by 15%',
-            'Published research on electric motor cooling systems',
-            'Winner of Best Powertrain Design Award - Formula Bharat 2023'
+        bio: "I'm Swarup, a B.Tech Aerospace Engineering student at SRMIST and the Team Lead of Hybrutos Racing, where I work on designing and developing high-performance Formula Student cars for regional and international competitions. I lead a multidisciplinary team, conduct training across domains, and focus on building a strong technical and collaborative culture within the club.",
+        sponsors: [
+            { name: 'TechDrive Solutions',   logo: null, tier: 'gold',   years: '2023–2024' },
+            { name: 'AeroComposites Inc.',   logo: null, tier: 'silver', years: '2022–2024' },
+            { name: 'VoltCore Energy',       logo: null, tier: 'gold',   years: '2024'      },
+            { name: 'SRMIST Alumni Fund',    logo: null, tier: 'silver', years: '2022–2024' },
+            { name: 'MachineWorks Pro',      logo: null, tier: 'bronze', years: '2023'      },
+            { name: 'Castrol Racing',        logo: null, tier: 'bronze', years: '2022–2023' },
         ],
         contact: {
-            email: 'john.doe@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/johndoe'
+            email: 'swarup@hybrutos-racing.com',
+            linkedin: 'https://linkedin.com/in/swarupnandakumar'
         }
     },
     'sarah-johnson': {
@@ -38,29 +27,16 @@ const profileData = {
         role: 'Electric Motor Specialist',
         team: 'Powertrain Team',
         image: 'https://via.placeholder.com/400x400/662d91/ffffff?text=SJ',
-        bio: 'Sarah is an electrical engineer specializing in high-performance electric motors for racing applications. With a background in power electronics and control systems, she has designed and optimized our vehicle\'s electric propulsion components. Her innovative approach to motor cooling and efficiency optimization has pushed our hybrid system to new heights.',
-        skills: [
-            { name: 'Motor Design', level: 92 },
-            { name: 'Power Electronics', level: 90 },
-            { name: 'Control Systems', level: 87 },
-            { name: 'MATLAB/Simulink', level: 85 },
-            { name: 'Circuit Design', level: 83 }
-        ],
-        education: {
-            degree: 'Bachelor of Science in Electrical Engineering',
-            school: 'University Name',
-            year: '2021 - 2025',
-            specialization: 'Focus on Power Systems and Motor Control'
-        },
-        achievements: [
-            'Designed custom 80kW electric motor for hybrid system',
-            'Reduced motor weight by 20% through innovative design',
-            'Implemented advanced field-oriented control algorithm',
-            'Published paper on thermal management in racing motors'
+        bio: "Sarah is an electrical engineer specialising in high-performance electric motors for racing applications. With a background in power electronics and control systems, she designed and optimised the vehicle's electric propulsion components. Her innovative approach to motor cooling and efficiency pushed the hybrid system to new heights.",
+        sponsors: [
+            { name: 'VoltCore Energy',       logo: null, tier: 'gold',   years: '2024'      },
+            { name: 'TechDrive Solutions',   logo: null, tier: 'gold',   years: '2023–2024' },
+            { name: 'AeroComposites Inc.',   logo: null, tier: 'silver', years: '2022–2024' },
+            { name: 'MachineWorks Pro',      logo: null, tier: 'bronze', years: '2023'      },
         ],
         contact: {
             email: 'sarah.johnson@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/sarahjohnson'
+            linkedin: 'https://linkedin.com/in/sarahjohnson'
         }
     },
     'mike-chen': {
@@ -68,29 +44,15 @@ const profileData = {
         role: 'Combustion Engineer',
         team: 'Powertrain Team',
         image: 'https://via.placeholder.com/400x400/662d91/ffffff?text=MC',
-        bio: 'Mike specializes in internal combustion engine optimization and fuel system design. His deep understanding of thermodynamics and combustion chemistry has enabled significant improvements in our engine\'s power output and fuel efficiency. He leads the engine calibration and testing efforts, ensuring peak performance under racing conditions.',
-        skills: [
-            { name: 'Combustion Analysis', level: 94 },
-            { name: 'Engine Calibration', level: 91 },
-            { name: 'Fuel Systems', level: 89 },
-            { name: 'Data Analysis', level: 87 },
-            { name: 'Dyno Testing', level: 90 }
-        ],
-        education: {
-            degree: 'Master of Science in Mechanical Engineering',
-            school: 'University Name',
-            year: '2019 - 2024',
-            specialization: 'Thesis on Advanced Combustion Strategies'
-        },
-        achievements: [
-            'Achieved 15% increase in engine power output',
-            'Optimized fuel mapping for all operating conditions',
-            'Reduced emissions by 25% while maintaining performance',
-            'Developed proprietary engine simulation model'
+        bio: "Mike specialises in internal combustion engine optimisation and fuel system design. His deep understanding of thermodynamics and combustion chemistry enabled significant improvements in engine power output and fuel efficiency. He led the engine calibration and testing efforts, ensuring peak performance under racing conditions.",
+        sponsors: [
+            { name: 'Castrol Racing',        logo: null, tier: 'gold',   years: '2022–2023' },
+            { name: 'TechDrive Solutions',   logo: null, tier: 'silver', years: '2023–2024' },
+            { name: 'SRMIST Alumni Fund',    logo: null, tier: 'bronze', years: '2022–2024' },
         ],
         contact: {
             email: 'mike.chen@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/mikechen'
+            linkedin: 'https://linkedin.com/in/mikechen'
         }
     },
     'emily-rodriguez': {
@@ -98,29 +60,15 @@ const profileData = {
         role: 'Hybrid Integration Lead',
         team: 'Powertrain Team',
         image: 'https://via.placeholder.com/400x400/662d91/ffffff?text=ER',
-        bio: 'Emily leads the integration of our hybrid powertrain system, coordinating between combustion and electric subsystems. Her expertise in system-level design and power management ensures seamless operation of our dual-power architecture. She develops the control strategies that optimize power distribution between our engine and motor.',
-        skills: [
-            { name: 'System Integration', level: 93 },
-            { name: 'Power Management', level: 91 },
-            { name: 'Control Strategy', level: 89 },
-            { name: 'Simulation', level: 86 },
-            { name: 'Team Leadership', level: 88 }
-        ],
-        education: {
-            degree: 'Bachelor of Science in Mechatronics',
-            school: 'University Name',
-            year: '2020 - 2024',
-            specialization: 'Focus on Hybrid Vehicle Systems'
-        },
-        achievements: [
-            'Designed hybrid control algorithm improving lap times by 3%',
-            'Coordinated successful integration of 2024 powertrain',
-            'Implemented regenerative braking recovery system',
-            'Led team to Best Integration Award at FS Austria'
+        bio: "Emily leads the integration of the hybrid powertrain system, coordinating between combustion and electric subsystems. Her expertise in system-level design and power management ensures seamless operation of the dual-power architecture. She develops control strategies that optimise power distribution between the engine and motor.",
+        sponsors: [
+            { name: 'VoltCore Energy',       logo: null, tier: 'gold',   years: '2024'      },
+            { name: 'AeroComposites Inc.',   logo: null, tier: 'silver', years: '2022–2024' },
+            { name: 'MachineWorks Pro',      logo: null, tier: 'bronze', years: '2023'      },
         ],
         contact: {
             email: 'emily.rodriguez@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/emilyrodriguez'
+            linkedin: 'https://linkedin.com/in/emilyrodriguez'
         }
     },
     'david-kumar': {
@@ -128,29 +76,15 @@ const profileData = {
         role: 'Transmission Engineer',
         team: 'Powertrain Team',
         image: 'https://via.placeholder.com/400x400/662d91/ffffff?text=DK',
-        bio: 'David is responsible for the design and optimization of our vehicle\'s transmission and drivetrain systems. His expertise in gear design, finite element analysis, and mechanical systems ensures reliable power delivery to the wheels. He has pioneered lightweight transmission solutions that maintain strength while reducing overall vehicle weight.',
-        skills: [
-            { name: 'Gearbox Design', level: 92 },
-            { name: 'FEA Analysis', level: 90 },
-            { name: 'Drivetrain Systems', level: 91 },
-            { name: 'CAD Modeling', level: 88 },
-            { name: 'Materials Selection', level: 85 }
-        ],
-        education: {
-            degree: 'Bachelor of Science in Mechanical Engineering',
-            school: 'University Name',
-            year: '2020 - 2024',
-            specialization: 'Focus on Machine Design and Dynamics'
-        },
-        achievements: [
-            'Designed custom sequential gearbox reducing shift time by 40%',
-            'Achieved 25% weight reduction in drivetrain components',
-            'Optimized gear ratios for maximum acceleration',
-            'Implemented stress analysis preventing component failures'
+        bio: "David is responsible for the design and optimisation of the vehicle's transmission and drivetrain systems. His expertise in gear design, finite element analysis, and mechanical systems ensures reliable power delivery to the wheels. He pioneered lightweight transmission solutions that maintain strength while reducing overall vehicle weight.",
+        sponsors: [
+            { name: 'TechDrive Solutions',   logo: null, tier: 'gold',   years: '2023–2024' },
+            { name: 'SRMIST Alumni Fund',    logo: null, tier: 'silver', years: '2022–2024' },
+            { name: 'Castrol Racing',        logo: null, tier: 'bronze', years: '2022–2023' },
         ],
         contact: {
             email: 'david.kumar@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/davidkumar'
+            linkedin: 'https://linkedin.com/in/davidkumar'
         }
     },
     'lisa-anderson': {
@@ -158,85 +92,137 @@ const profileData = {
         role: 'Cooling Systems Engineer',
         team: 'Powertrain Team',
         image: 'https://via.placeholder.com/400x400/662d91/ffffff?text=LA',
-        bio: 'Lisa specializes in thermal management for high-performance racing powertrains. She designs and optimizes cooling systems for both the combustion engine and electric components, ensuring optimal operating temperatures under extreme racing conditions. Her CFD expertise has led to innovative cooling solutions that maximize efficiency while minimizing drag.',
-        skills: [
-            { name: 'Thermal Management', level: 94 },
-            { name: 'CFD Analysis', level: 91 },
-            { name: 'Heat Exchanger Design', level: 90 },
-            { name: 'Flow Simulation', level: 88 },
-            { name: 'Cooling System Optimization', level: 92 }
-        ],
-        education: {
-            degree: 'Master of Science in Thermal Engineering',
-            school: 'University Name',
-            year: '2019 - 2024',
-            specialization: 'Research on Advanced Cooling Technologies'
-        },
-        achievements: [
-            'Reduced powertrain operating temperature by 20°C',
-            'Designed integrated cooling system for hybrid components',
-            'Optimized radiator placement improving aerodynamic efficiency',
-            'Published research on phase-change cooling materials'
+        bio: "Lisa specialises in thermal management for high-performance racing powertrains. She designs and optimises cooling systems for both the combustion engine and electric components, ensuring optimal operating temperatures under extreme racing conditions. Her CFD expertise has led to innovative cooling solutions that maximise efficiency while minimising drag.",
+        sponsors: [
+            { name: 'VoltCore Energy',       logo: null, tier: 'gold',   years: '2024'      },
+            { name: 'AeroComposites Inc.',   logo: null, tier: 'gold',   years: '2022–2024' },
+            { name: 'MachineWorks Pro',      logo: null, tier: 'silver', years: '2023'      },
+            { name: 'Castrol Racing',        logo: null, tier: 'bronze', years: '2022–2023' },
         ],
         contact: {
             email: 'lisa.anderson@hybrutos-racing.com',
-            linkedin: 'linkedin.com/in/lisaanderson'
+            linkedin: 'https://linkedin.com/in/lisaanderson'
         }
     }
 };
 
 // ========================================
+// SPONSOR TIER CONFIG
+// ========================================
+const TIER_LABELS = {
+    gold:   { label: 'Gold Sponsor',   color: '#FFD700' },
+    silver: { label: 'Silver Sponsor', color: '#C0C0C0' },
+    bronze: { label: 'Bronze Sponsor', color: '#CD7F32' },
+};
+
+function buildSponsorCard(sponsor) {
+    const tier = TIER_LABELS[sponsor.tier] || TIER_LABELS.bronze;
+    // Generate a simple SVG placeholder logo from the sponsor name initials
+    const initials = sponsor.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+    return `
+        <div class="sponsor-card sponsor-tier-${sponsor.tier}">
+            <div class="sponsor-logo-wrap">
+                <div class="sponsor-logo-placeholder" aria-label="${sponsor.name} logo">
+                    <span class="sponsor-initials">${initials}</span>
+                </div>
+            </div>
+            <div class="sponsor-info">
+                <p class="sponsor-name">${sponsor.name}</p>
+                <span class="sponsor-tier-badge" style="color:${tier.color};border-color:${tier.color};">${tier.label}</span>
+                <p class="sponsor-years">${sponsor.years}</p>
+            </div>
+        </div>
+    `;
+}
+
+// ========================================
+// PROFILE TAB SWITCHING
+// ========================================
+function initProfileTabs() {
+    const tabBtns    = document.querySelectorAll('.profile-tab-btn');
+    const tabPanels  = document.querySelectorAll('.profile-tab-panel');
+    const slider     = document.querySelector('.profile-tab-slider');
+
+    function moveSlider(btn) {
+        if (!slider) return;
+        slider.style.left  = btn.offsetLeft + 'px';
+        slider.style.width = btn.offsetWidth + 'px';
+    }
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = 'ptab-' + btn.dataset.profileTab;
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanels.forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(targetId)?.classList.add('active');
+            moveSlider(btn);
+        });
+    });
+
+    // Set initial slider position
+    const activeBtn = document.querySelector('.profile-tab-btn.active');
+    if (activeBtn) moveSlider(activeBtn);
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => {
+        const ab = document.querySelector('.profile-tab-btn.active');
+        if (ab) moveSlider(ab);
+    });
+}
+
+// ========================================
 // LOAD PROFILE DATA
 // ========================================
-
 function loadProfile() {
-    // Get member ID from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const memberId = urlParams.get('member');
-    
+    const memberId  = urlParams.get('member');
+
     if (!memberId || !profileData[memberId]) {
-        // Redirect to home if invalid member
         window.location.href = 'index.html#team';
         return;
     }
-    
+
     const member = profileData[memberId];
-    
-    // Update page title
-    document.title = `${member.name} - Hybrutos Racing`;
-    
-    // Update profile header
-    document.getElementById('profileImage').src = member.image;
-    document.getElementById('profileImage').alt = member.name;
-    document.getElementById('profileName').textContent = member.name;
-    document.getElementById('profileRole').textContent = member.role;
-    document.getElementById('profileTeam').textContent = member.team;
-    
-    // Update bio
+
+    // Page title
+    document.title = `${member.name} — Hybrutos Racing`;
+
+    // Header
+    document.getElementById('profileImage').src       = member.image;
+    document.getElementById('profileImage').alt       = member.name;
+    document.getElementById('profileName').textContent  = member.name;
+    document.getElementById('profileRole').textContent  = member.role;
+    document.getElementById('profileTeam').textContent  = member.team;
+
+    // Social icons
+    document.getElementById('profileLinkedinBtn').href = member.contact.linkedin;
+    document.getElementById('profileEmailBtn').href    = `mailto:${member.contact.email}`;
+
+    // About tab
     document.getElementById('profileBio').textContent = member.bio;
-    
-    // Update skills
-    const skillsGrid = document.getElementById('profileSkills');
-    skillsGrid.innerHTML = member.skills.map(skill => `
-        <div class="skill-item">
-            <div class="skill-name">${skill.name}</div>
-            <div class="skill-bar">
-                <div class="skill-level" style="width: ${skill.level}%"></div>
-            </div>
-        </div>
-    `).join('');
-    
-    // Animate skill bars on load
-    setTimeout(() => {
-        document.querySelectorAll('.skill-level').forEach((bar, index) => {
-            setTimeout(() => {
-                bar.style.transition = 'width 1s ease';
-            }, index * 100);
-        });
-    }, 500);
+
+    // Sponsors tab
+    const sponsorsGrid = document.getElementById('profileSponsors');
+    if (member.sponsors && member.sponsors.length) {
+        sponsorsGrid.innerHTML = member.sponsors.map(buildSponsorCard).join('');
+    } else {
+        sponsorsGrid.innerHTML = '<p class="no-sponsors">No sponsor data available for this member.</p>';
+    }
+
+    // Contact tab
+    const emailLink    = document.getElementById('profileEmailLink');
+    const linkedinLink = document.getElementById('profileLinkedinLink');
+    emailLink.href          = `mailto:${member.contact.email}`;
+    emailLink.textContent   = member.contact.email;
+    linkedinLink.href       = member.contact.linkedin;
+    linkedinLink.textContent = member.contact.linkedin.replace('https://', '');
 }
 
-// Load profile when page loads
+// ========================================
+// INITIALISE
+// ========================================
 if (document.getElementById('profileName')) {
     loadProfile();
+    initProfileTabs();
 }

@@ -4,109 +4,156 @@
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
-// Check for saved theme preference or default to 'dark'
 const currentTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', currentTheme);
 
 themeToggle.addEventListener('click', () => {
     const theme = html.getAttribute('data-theme');
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    
-    // Add rotation animation
     themeToggle.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-        themeToggle.style.transform = '';
-    }, 300);
+    setTimeout(() => { themeToggle.style.transform = ''; }, 300);
+});
+
+// ========================================
+// TAB NAVIGATION SYSTEM
+// ========================================
+const TAB_ORDER = ['home', 'about', 'technology', 'team', 'achievements', 'gallery', 'contact'];
+
+function getTabIndex(tabId) {
+    return TAB_ORDER.indexOf(tabId);
+}
+
+let currentTab = null;
+
+function switchTab(tabId, pushState = true) {
+    if (!tabId || tabId === currentTab) return;
+
+    const panels   = document.querySelectorAll('.tab-panel');
+    const navLinks = document.querySelectorAll('.tab-nav-link[data-tab]');
+    const oldIndex = getTabIndex(currentTab);
+    const newIndex = getTabIndex(tabId);
+
+    // Direction for slide animation
+    const direction = (oldIndex === -1 || newIndex > oldIndex) ? 'forward' : 'backward';
+
+    panels.forEach(panel => {
+        const id = panel.id.replace('tab-', '');
+        if (id === currentTab) {
+            panel.classList.add(direction === 'forward' ? 'slide-out-left' : 'slide-out-right');
+            panel.classList.remove('active');
+            setTimeout(() => {
+                panel.classList.remove('slide-out-left', 'slide-out-right');
+            }, 400);
+        }
+        if (id === tabId) {
+            panel.classList.add(direction === 'forward' ? 'slide-in-right' : 'slide-in-left');
+            panel.classList.add('active');
+            // Trigger AOS-style animations inside newly active panel
+            setTimeout(() => {
+                panel.classList.remove('slide-in-right', 'slide-in-left');
+                panel.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
+            }, 50);
+        }
+    });
+
+    // Update active nav link
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.tab === tabId);
+    });
+
+    // Move the glowing tab indicator
+    updateTabIndicator(tabId);
+
+    currentTab = tabId;
+
+    // Update URL hash without scrolling
+    if (pushState) {
+        history.pushState({ tab: tabId }, '', `#${tabId}`);
+    }
+
+    // Trigger counters on home tab
+    if (tabId === 'home') {
+        setTimeout(initCounters, 200);
+    }
+
+    // Scroll panel to top
+    window.scrollTo({ top: 0 });
+}
+
+function updateTabIndicator(tabId) {
+    const indicator = document.getElementById('tabIndicator');
+    if (!indicator) return;
+    const activeLink = document.querySelector(`.nav-menu .tab-nav-link[data-tab="${tabId}"]`);
+    if (!activeLink) return;
+    const navMenu = document.getElementById('navMenu');
+    const menuRect = navMenu.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    indicator.style.left  = (linkRect.left - menuRect.left + navMenu.scrollLeft) + 'px';
+    indicator.style.width = linkRect.width + 'px';
+}
+
+// Bind all .tab-nav-link elements
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('.tab-nav-link[data-tab]');
+    if (!link) return;
+    e.preventDefault();
+    const tabId = link.dataset.tab;
+    if (tabId) switchTab(tabId);
+    // Close mobile menu if open
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+// Handle browser back/forward
+window.addEventListener('popstate', (e) => {
+    const tabId = (e.state && e.state.tab) || 'home';
+    switchTab(tabId, false);
+});
+
+// Initial tab from URL hash
+const initialHash = window.location.hash.replace('#', '') || 'home';
+const validInitial = TAB_ORDER.includes(initialHash) ? initialHash : 'home';
+switchTab(validInitial, false);
+
+// Update indicator on resize
+window.addEventListener('resize', () => {
+    if (currentTab) updateTabIndicator(currentTab);
 });
 
 // ========================================
 // NAVIGATION
 // ========================================
-const navbar = document.querySelector('.navbar');
+const navbar    = document.querySelector('.navbar');
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
+const navMenu   = document.getElementById('navMenu');
 
-// Navbar scroll effect
-let lastScroll = 0;
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
+    navbar.classList.toggle('scrolled', window.pageYOffset > 50);
 });
 
-// Mobile menu toggle
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
-// Close mobile menu on link click
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
-    });
-});
-
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNavLink() {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 200;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-        } else {
-            document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', highlightNavLink);
-
-// ========================================
-// SMOOTH SCROLL
-// ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
+    }
 });
 
 // ========================================
 // ANIMATED COUNTERS
 // ========================================
 function animateCounter(element, target, duration = 2000) {
-    const start = 0;
     const increment = target / (duration / 16);
-    let current = start;
-    
+    let current = 0;
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -118,292 +165,136 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Intersection Observer for counters
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            const target = parseFloat(entry.target.getAttribute('data-count'));
-            animateCounter(entry.target, target);
-            entry.target.classList.add('counted');
-        }
+function initCounters() {
+    document.querySelectorAll('.stat-number:not(.counted)').forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-count'));
+        animateCounter(counter, target);
+        counter.classList.add('counted');
     });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-number').forEach(counter => {
-    counterObserver.observe(counter);
-});
+}
 
 // ========================================
 // SCROLL ANIMATIONS (AOS)
 // ========================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -80px 0px' };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('aos-animate');
-            // Optional: unobserve after animation
-            // observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) entry.target.classList.add('aos-animate');
     });
 }, observerOptions);
 
-// Observe all elements with data-aos attribute
-document.querySelectorAll('[data-aos]').forEach(element => {
-    observer.observe(element);
+// Observe all [data-aos] elements that are inside the currently active panel
+function observeAOS() {
+    document.querySelectorAll('.tab-panel.active [data-aos]').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Also observe on tab switch (handled in switchTab via direct add)
+observeAOS();
+
+// ========================================
+// GALLERY FILTER
+// ========================================
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        galleryItems.forEach((item, i) => {
+            const show = filter === 'all' || item.dataset.category === filter;
+            item.style.transition = `opacity 0.3s ease ${i * 30}ms, transform 0.3s ease ${i * 30}ms`;
+            if (show) {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+                item.style.display = '';
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    if (btn.classList.contains('active') && item.dataset.category !== btn.dataset.filter && btn.dataset.filter !== 'all') {
+                        item.style.display = 'none';
+                    }
+                }, 350);
+            }
+        });
+    });
 });
 
 // ========================================
-// FORM HANDLING
+// CONTACT FORM
 // ========================================
 const contactForm = document.getElementById('contactForm');
 
 contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        interest: document.getElementById('interest').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Simulate form submission
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
     setTimeout(() => {
         submitBtn.textContent = 'Message Sent! ✓';
         submitBtn.style.background = 'linear-gradient(135deg, #00d4aa 0%, #00d4ff 100%)';
-        
-        // Reset form
         contactForm.reset();
-        
-        // Reset button after 3 seconds
         setTimeout(() => {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             submitBtn.style.background = '';
         }, 3000);
     }, 1500);
-    
-    console.log('Form submitted:', formData);
 });
 
 // Newsletter form
-const newsletterForm = document.querySelector('.newsletter-form');
-
-newsletterForm?.addEventListener('submit', (e) => {
+document.querySelector('.newsletter-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    const email = newsletterForm.querySelector('input[type="email"]').value;
-    const submitBtn = newsletterForm.querySelector('button');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.textContent = 'Subscribed! ✓';
-    submitBtn.disabled = true;
-    
-    newsletterForm.reset();
-    
-    setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 3000);
-    
-    console.log('Newsletter subscription:', email);
+    const btn = e.currentTarget.querySelector('button');
+    btn.textContent = 'Subscribed! ✓';
+    btn.disabled = true;
+    e.currentTarget.reset();
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 3000);
 });
 
 // ========================================
-// INTERACTIVE EFFECTS
+// TECH CARD TILT EFFECT
 // ========================================
-
-// Parallax effect on hero background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroBackground = document.querySelector('.hero-background');
-    
-    if (heroBackground && scrolled < window.innerHeight) {
-        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Tech cards tilt effect on hover
-const techCards = document.querySelectorAll('.tech-card');
-
-techCards.forEach(card => {
+document.querySelectorAll('.tech-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        const rotateX = ((e.clientY - rect.top)  / rect.height - 0.5) * 15;
+        const rotateY = ((e.clientX - rect.left) / rect.width  - 0.5) * -15;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
     });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
-
-// Department cards pulse effect
-const departmentCards = document.querySelectorAll('.department-card');
-
-departmentCards.forEach((card, index) => {
-    card.addEventListener('mouseenter', () => {
-        card.style.animation = `pulse 0.5s ease`;
-    });
-    
-    card.addEventListener('animationend', () => {
-        card.style.animation = '';
-    });
-});
-
-// Add pulse animation to CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.02); }
-    }
-`;
-document.head.appendChild(style);
-
-// ========================================
-// CURSOR TRAIL EFFECT (Optional)
-// ========================================
-let cursorTrail = [];
-const maxTrailLength = 10;
-
-document.addEventListener('mousemove', (e) => {
-    // Only on desktop
-    if (window.innerWidth > 768) {
-        cursorTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
-        
-        if (cursorTrail.length > maxTrailLength) {
-            cursorTrail.shift();
-        }
-    }
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
 // ========================================
-// LOADING ANIMATION
+// ACCESSIBILITY
+// ========================================
+const skipLink = document.createElement('a');
+skipLink.href = '#';
+skipLink.className = 'skip-link';
+skipLink.textContent = 'Skip to main content';
+skipLink.style.cssText = 'position:absolute;top:-40px;left:0;background:var(--accent-primary);color:white;padding:8px;text-decoration:none;z-index:10000;';
+skipLink.addEventListener('focus', () => { skipLink.style.top = '0'; });
+skipLink.addEventListener('blur',  () => { skipLink.style.top = '-40px'; });
+document.body.prepend(skipLink);
+
+// ========================================
+// LOADING FADE IN
 // ========================================
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// ========================================
-// REVEAL ELEMENTS ON SCROLL
-// ========================================
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.about-text, .about-visual, .tech-card, .department-card, .timeline-item');
-    
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-
-// ========================================
-// PERFORMANCE OPTIMIZATION
-// ========================================
-
-// Debounce function for scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Apply debounce to scroll-heavy functions
-window.addEventListener('scroll', debounce(highlightNavLink, 100));
-
-// ========================================
-// ACCESSIBILITY ENHANCEMENTS
-// ========================================
-
-// Skip to main content
-const skipLink = document.createElement('a');
-skipLink.href = '#home';
-skipLink.className = 'skip-link';
-skipLink.textContent = 'Skip to main content';
-skipLink.style.cssText = `
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--accent-primary);
-    color: white;
-    padding: 8px;
-    text-decoration: none;
-    z-index: 10000;
-`;
-skipLink.addEventListener('focus', () => {
-    skipLink.style.top = '0';
-});
-skipLink.addEventListener('blur', () => {
-    skipLink.style.top = '-40px';
-});
-document.body.prepend(skipLink);
-
-// Keyboard navigation for mobile menu
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    document.body.style.transition = 'opacity 0.4s ease';
+    requestAnimationFrame(() => { document.body.style.opacity = '1'; });
 });
 
 // ========================================
 // CONSOLE EASTER EGG
 // ========================================
-console.log('%c🏎️ HYBRUTOS RACING', 'font-size: 30px; font-weight: bold; background: linear-gradient(135deg, #662d91 0%, #9d4edd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
-console.log('%cEngineering the future of racing. Interested in joining our team?', 'font-size: 14px; color: #666;');
-console.log('%cVisit the Contact section or email us at contact@hybrutos-racing.com', 'font-size: 12px; color: #999;');
-
-// ========================================
-// INITIALIZE
-// ========================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Trigger initial animations
-    highlightNavLink();
-    revealOnScroll();
-    
-    // Set initial hero subtitle animation
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        heroSubtitle.style.transform = 'translateY(20px)';
-    }
-    
-    console.log('🚀 Hybrutos Racing website initialized');
-});
+console.log('%c🏎️ HYBRUTOS RACING', 'font-size:30px;font-weight:bold;background:linear-gradient(135deg,#662d91,#9d4edd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;');
+console.log('%cEngineering the future of racing.', 'font-size:14px;color:#666;');
