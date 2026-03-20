@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powertrain Team - Hybrutos Racing</title>
+    <title>Aerodynamics Team - Hybrutos Racing</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/team-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,25 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
         <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </button>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -46,152 +40,47 @@
                 <li><a href="index.html#achievements" class="nav-link">Achievements</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
-    <!-- Team Page Header -->
     <section class="team-page-header">
         <div class="container">
             <a href="index.html#team" class="back-link">← Back to All Teams</a>
             <div class="team-page-title">
-                <div class="dept-icon-large">⚙️</div>
+                <div class="dept-icon-large">💨</div>
                 <div>
-                    <h1>Powertrain Team</h1>
-                    <p class="team-description">Designing and optimizing our hybrid engine and electric motor systems for maximum performance.</p>
+                    <h1>Aerodynamics Team</h1>
+                    <p class="team-description">Developing cutting-edge aerodynamic solutions through CFD simulation and wind tunnel testing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Members Grid -->
     <section class="team-members-section">
         <div class="container">
             <div class="members-grid">
-                <!-- Team Member 1 -->
-                <a href="profile.html?member=john-doe" class="member-card">
+
+                <a href="profile.html?member=kelvin-john" class="member-card">
                     <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=JD" alt="John Doe">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
+                        <img src="member-pictures/Aerodynamics/Kelvin John Samson.jpeg" alt="Kelvin John Samson">
+                        <div class="member-overlay"><span>View Profile →</span></div>
                     </div>
                     <div class="member-info">
-                        <h3>John Doe</h3>
-                        <p class="member-role">Powertrain Lead</p>
+                        <h3>Kelvin John Samson</h3>
+                        <p class="member-role">Aerodynamics Lead</p>
                         <div class="member-skills">
-                            <span class="skill-tag">Engine Design</span>
-                            <span class="skill-tag">CAD</span>
-                            <span class="skill-tag">Testing</span>
+                            <span class="skill-tag">CFD Analysis</span>
+                            <span class="skill-tag">Wing Design</span>
+                            <span class="skill-tag">Bodywork</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- Team Member 2 -->
-                <a href="profile.html?member=sarah-johnson" class="member-card">
-                    <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=SJ" alt="Sarah Johnson">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Sarah Johnson</h3>
-                        <p class="member-role">Electric Motor Specialist</p>
-                        <div class="member-skills">
-                            <span class="skill-tag">Motor Design</span>
-                            <span class="skill-tag">Controls</span>
-                            <span class="skill-tag">Simulation</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Team Member 3 -->
-                <a href="profile.html?member=mike-chen" class="member-card">
-                    <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=MC" alt="Mike Chen">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Mike Chen</h3>
-                        <p class="member-role">Combustion Engineer</p>
-                        <div class="member-skills">
-                            <span class="skill-tag">Thermodynamics</span>
-                            <span class="skill-tag">Fuel Systems</span>
-                            <span class="skill-tag">Analysis</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Team Member 4 -->
-                <a href="profile.html?member=emily-rodriguez" class="member-card">
-                    <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=ER" alt="Emily Rodriguez">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Emily Rodriguez</h3>
-                        <p class="member-role">Hybrid Integration Lead</p>
-                        <div class="member-skills">
-                            <span class="skill-tag">System Integration</span>
-                            <span class="skill-tag">Power Management</span>
-                            <span class="skill-tag">Testing</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Team Member 5 -->
-                <a href="profile.html?member=david-kumar" class="member-card">
-                    <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=DK" alt="David Kumar">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>David Kumar</h3>
-                        <p class="member-role">Transmission Engineer</p>
-                        <div class="member-skills">
-                            <span class="skill-tag">Gearbox Design</span>
-                            <span class="skill-tag">Drivetrain</span>
-                            <span class="skill-tag">FEA</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Team Member 6 -->
-                <a href="profile.html?member=lisa-anderson" class="member-card">
-                    <div class="member-image">
-                        <img src="https://via.placeholder.com/300x300/662d91/ffffff?text=LA" alt="Lisa Anderson">
-                        <div class="member-overlay">
-                            <span>View Profile →</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Lisa Anderson</h3>
-                        <p class="member-role">Cooling Systems Engineer</p>
-                        <div class="member-skills">
-                            <span class="skill-tag">Thermal Management</span>
-                            <span class="skill-tag">CFD</span>
-                            <span class="skill-tag">Heat Exchangers</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Add more team members as needed -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -218,6 +107,8 @@
                         <li><a href="team-chassis.html">Chassis</a></li>
                         <li><a href="team-aerodynamics.html">Aerodynamics</a></li>
                         <li><a href="team-electronics.html">Electronics</a></li>
+                        <li><a href="team-suspension.html">Suspension</a></li>
+                        <li><a href="team-business.html">Business &amp; Ops</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

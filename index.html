@@ -8,6 +8,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Sponsors Section ─────────────────────────────────────────── */
+        .sponsors-tier-block { margin-bottom: 3rem; }
+        .sponsors-tier-heading {
+            display: flex; align-items: center; gap: 1rem;
+            font-family: 'Orbitron', sans-serif; font-size: 1rem;
+            letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .tier-line { flex: 1; height: 1px; background: currentColor; opacity: .3; }
+        .sponsors-logo-row {
+            display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;
+        }
+        .sponsor-logo-card {
+            display: flex; flex-direction: column; align-items: center;
+            gap: .5rem; text-decoration: none; padding: 1.25rem 1.5rem;
+            border-radius: 12px; border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255,255,255,.03); transition: transform .2s, border-color .2s;
+            min-width: 140px; max-width: 160px; text-align: center;
+            color: var(--text-primary, #fff);
+        }
+        .sponsor-logo-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.25); }
+        .sponsor-logo-card img { height: 52px; width: auto; object-fit: contain; }
+        .sponsor-logo-card p { margin: 0; font-weight: 600; font-size: .9rem; }
+        .sponsor-logo-card small { opacity: .55; font-size: .75rem; }
+        .sp-fallback { font-weight: 600; }
+        .sponsor-cta { text-align: center; margin-top: 3rem; }
+        .sponsor-cta p { margin-bottom: 1rem; opacity: .7; }
+        /* Profile sponsor logo img */
+        .sponsor-logo-img { height: 48px; width: auto; object-fit: contain; }
+    </style>
 </head>
 <body>
     <!-- Theme Toggle Button -->
@@ -39,6 +69,7 @@
                 <li><a href="#technology"   class="nav-link tab-nav-link"        data-tab="technology">Technology</a></li>
                 <li><a href="#team"         class="nav-link tab-nav-link"        data-tab="team">Team</a></li>
                 <li><a href="#achievements" class="nav-link tab-nav-link"        data-tab="achievements">Achievements</a></li>
+                <li><a href="#sponsors"    class="nav-link tab-nav-link"        data-tab="sponsors">Sponsors</a></li>
                 <li><a href="#gallery"      class="nav-link tab-nav-link"        data-tab="gallery">Gallery</a></li>
                 <li><a href="#contact"      class="nav-link tab-nav-link"        data-tab="contact">Contact</a></li>
             </ul>
@@ -301,6 +332,99 @@
         </section>
     </div>
 
+    <!-- ===================== TAB: SPONSORS ===================== -->
+    <div class="tab-panel" id="tab-sponsors">
+        <section class="sponsors tab-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-label">Our Partners</span>
+                    <h2 class="section-title">Sponsors &amp; Supporters</h2>
+                </div>
+
+                <!-- Gold Sponsors -->
+                <div class="sponsors-tier-block" data-aos="fade-up">
+                    <h3 class="sponsors-tier-heading" style="color:#FFD700;">
+                        <span class="tier-line"></span>Gold Partners<span class="tier-line"></span>
+                    </h3>
+                    <div class="sponsors-logo-row gold-row">
+                        <a href="http://axicut.com/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/axicut.png" alt="Axicut Solutions" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Axicut Solutions</span>'">
+                            <p>Axicut Solutions</p><small>Laser Cutting</small>
+                        </a>
+                        <a href="#" class="sponsor-logo-card">
+                            <img src="assets/sponsors/matrix.png" alt="Matrix" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Matrix</span>'">
+                            <p>Matrix</p><small>CNC Machining</small>
+                        </a>
+                        <a href="https://www.bender.de/en/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/bender.png" alt="Bender" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Bender</span>'">
+                            <p>Bender</p><small>Insulation Monitoring</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Silver Sponsors -->
+                <div class="sponsors-tier-block" data-aos="fade-up">
+                    <h3 class="sponsors-tier-heading" style="color:#C0C0C0;">
+                        <span class="tier-line"></span>Silver Partners<span class="tier-line"></span>
+                    </h3>
+                    <div class="sponsors-logo-row silver-row">
+                        <a href="https://globaltechart.in/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/globaltechart.png" alt="Global Tech Art" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Global Tech Art</span>'">
+                            <p>Global Tech Art</p><small>Water Jet Cutting</small>
+                        </a>
+                        <a href="https://en.winston-battery.com/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/winston.png" alt="Winston Batteries" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Winston Batteries</span>'">
+                            <p>Winston Batteries</p><small>Battery Sponsor</small>
+                        </a>
+                        <a href="http://onlyscrews.in/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/onlyscrews.png" alt="OnlyScrews" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>OnlyScrews</span>'">
+                            <p>OnlyScrews</p><small>Screws &amp; Fasteners</small>
+                        </a>
+                        <a href="https://deltaa5performance.com/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/delta5.png" alt="Delta 5 Performance" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Delta 5 Performance</span>'">
+                            <p>Delta 5 Performance</p><small>Tuning &amp; Upgrades</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bronze Sponsors -->
+                <div class="sponsors-tier-block" data-aos="fade-up">
+                    <h3 class="sponsors-tier-heading" style="color:#CD7F32;">
+                        <span class="tier-line"></span>Bronze Partners<span class="tier-line"></span>
+                    </h3>
+                    <div class="sponsors-logo-row bronze-row">
+                        <a href="https://www.solidworks.com/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/solidworks.png" alt="SolidWorks" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>SolidWorks</span>'">
+                            <p>SolidWorks</p><small>3D CAD Modelling</small>
+                        </a>
+                        <a href="https://www.ansys.com/en-in" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/ansys.png" alt="Ansys" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Ansys</span>'">
+                            <p>Ansys</p><small>Simulation Software</small>
+                        </a>
+                        <a href="https://www.aboutenergy.io/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/aboutenergy.png" alt="About Energy" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>About Energy</span>'">
+                            <p>About Energy</p><small>Battery Simulation</small>
+                        </a>
+                        <a href="https://www.vi-grade.com/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/vigrade.png" alt="VI Grade" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>VI Grade</span>'">
+                            <p>VI Grade</p><small>Vehicle Simulation</small>
+                        </a>
+                        <a href="https://www.srmist.edu.in/department/centre-for-electric-mobility/" target="_blank" rel="noopener" class="sponsor-logo-card">
+                            <img src="assets/sponsors/cfe.png" alt="Centre For eMobility" onerror="this.parentElement.innerHTML='<span class=\'sp-fallback\'>Centre For eMobility</span>'">
+                            <p>Centre For eMobility</p><small>Technical Partnership</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sponsor-cta" data-aos="fade-up">
+                    <p>Interested in supporting Hybrutos Racing?</p>
+                    <a href="#contact" class="btn btn-primary tab-nav-link" data-tab="contact">Become a Sponsor</a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
     <!-- ===================== TAB: ACHIEVEMENTS ===================== -->
     <div class="tab-panel" id="tab-achievements">
         <section class="achievements tab-section">
@@ -457,7 +581,7 @@
                                 <div class="info-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 </div>
-                                <div><h4>Email</h4><p>contact@hybrutos-racing.com</p></div>
+                                <div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e88b87869c898b9ca880918a9a9d9c879bc59a898b81868fc68b8785">[email&#160;protected]</a></p></div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon">
@@ -551,11 +675,3 @@
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="scripts/main.js"></script>
-</body>
-</html>
