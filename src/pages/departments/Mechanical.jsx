@@ -59,39 +59,43 @@ export default function Mechanical() {
         </div>
       </div>
 
-      {/* Team Lead Section */}
-      <div className="mb-12 mt-20 text-center">
-        <h2 className="text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>Team Lead</h2>
-        <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#22c55e' }}></div>
-      </div>
-
-      <div className="flex justify-center relative z-10 mb-8">
-        <div 
-          className="group relative overflow-hidden rounded-[24px] p-8 text-center transition-all duration-500 hover:-translate-y-2 border w-full max-w-sm"
-          style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)', boxShadow: '0 4px 20px var(--glass-shadow)' }}
-        >
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle at top, rgba(34,197,94,0.1), transparent 70%)' }} />
-          
-          <div className="w-48 h-48 mx-auto rounded-full mb-6 border-4 overflow-hidden relative flex items-center justify-center" style={{ borderColor: 'rgba(34,197,94,0.3)', backgroundColor: 'var(--bg-tertiary)' }}>
-            <div className="absolute inset-0 flex items-center justify-center" style={{ color: 'var(--text-muted)' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            {/* TODO: Add Team Lead Image Here */}
-            {/* <img src="/path-to-image.jpg" alt="Mechanical Team Lead" className="w-full h-full object-cover relative z-10" /> */}
+      {/* Team Lead Section (Commented out for now) */}
+      {false && (
+        <>
+          <div className="mb-12 mt-20 text-center">
+            <h2 className="text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>Team Lead</h2>
+            <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#22c55e' }}></div>
           </div>
-          
-          <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Lead Name</h3>
-          <p className="font-medium tracking-wide uppercase text-sm mb-4" style={{ color: '#22c55e' }}>
-            Mechanical Lead
-          </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-            Driving physical excellence and structural integrity for the team.
-          </p>
-        </div>
-      </div>
+
+          <div className="flex justify-center relative z-10 mb-8">
+            <div 
+              className="group relative overflow-hidden rounded-[24px] p-8 text-center transition-all duration-500 hover:-translate-y-2 border w-full max-w-sm"
+              style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)', boxShadow: '0 4px 20px var(--glass-shadow)' }}
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle at top, rgba(34,197,94,0.1), transparent 70%)' }} />
+              
+              <div className="w-48 h-48 mx-auto rounded-full mb-6 border-4 overflow-hidden relative flex items-center justify-center" style={{ borderColor: 'rgba(34,197,94,0.3)', backgroundColor: 'var(--bg-tertiary)' }}>
+                <div className="absolute inset-0 flex items-center justify-center" style={{ color: 'var(--text-muted)' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                {/* TODO: Add Team Lead Image Here */}
+                {/* <img src="/path-to-image.jpg" alt="Mechanical Team Lead" className="w-full h-full object-cover relative z-10" /> */}
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Lead Name</h3>
+              <p className="font-medium tracking-wide uppercase text-sm mb-4" style={{ color: '#22c55e' }}>
+                Mechanical Lead
+              </p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+                Driving physical excellence and structural integrity for the team.
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
